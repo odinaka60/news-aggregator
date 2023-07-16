@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+</head>
+
+<body>
+The content of the document......
+{% for i in headlines %}
+<div style='background-color: #c4aead; margin: 25px' >
+   <p>{{i.title}}</p> 
+   <p>{{i.link}}</p>
+   <p>{{i.date}}</p>
+   <p>{{i.image}}</p>
+</div>
+
+{% endfor %}
+
+</body>
+ 
+</html>

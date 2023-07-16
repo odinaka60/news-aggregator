@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    {%if page_obj %}
+        {% include 'searchedresult.html' %}
+    {% else %}
+        {% include 'nosearchedresult.html' %}
+    {% endif %} 
+
+{% endblock %}
+
+
+

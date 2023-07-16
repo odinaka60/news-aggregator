@@ -1,0 +1,15 @@
+<div class="container-fluid p-4">
+    <div class="row row-cols-3 gx-5">
+      {% for each in news %}
+        <div class="col">
+          {% include 'card.html' with news=news %}
+        </div>
+      {% endfor %}
+      
+    </div>
+    <div class="d-flex justify-content-center">
+      <a class=" btn btn-dark m-3" href="#" role="button" style="font-family: 'Oswald', sans-serif;">More News</a>
+    </div>
+    
+</div>
+  

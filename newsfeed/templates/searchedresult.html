@@ -1,0 +1,26 @@
+<div class="container-fluid " style="min-height: 100vh;">
+    <div class="mt-5" style="font-family: 'Anton', sans-serif;">
+        <h1 class="text-center mt-4"> Search Result for: {{search_words}}  </h1>
+    </div>
+
+    <hr class="mx-4">
+
+        <div class="row row-cols-3 gx-5 my-4">
+          {% for each in page_obj %}
+            <div class="col">
+              {% include 'card.html' with page_obj=page_obj %}
+            </div>
+          {% endfor %}   
+        </div>
+
+        <div class="my-3 d-flex justify-content-center align-items-baseline" style="font-family: 'Oswald', sans-serif;">
+            {%if page_obj.has_previous %} {# whether the previous page exists #}
+                <a class="btn btn-outline-dark" href="?page={{page_obj.previous_page_number}}"><h5>Previous page</h5></a> {# link to the prev page #}
+            {% endif %}
+            <div class="mx-3"><h5><u>{{page_obj.number}}</u></h5></div> {# the current page number #}
+            
+            {%if page_obj.has_next %} {# whether the next page exists #}
+                <a class="btn btn-outline-dark" href="?page={{page_obj.next_page_number}}"><h5>Next page</h5></a> {# link to the next page #}
+            {% endif %}
+        </div>
+</div>
