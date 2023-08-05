@@ -20,6 +20,13 @@ class News(models.Model):
     name = models.CharField(max_length=255, default='Online News')
     favi_link = models.URLField(max_length = 200, default='https://fastly.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU')
     category = models.CharField(max_length=255, default='News')
+    clicks = models.IntegerField(default=0)
     
     def __str__(self):
         return self.title
+    
+class Subscriber(models.Model):
+    suscribers_email = models.EmailField()
+    
+    def __str__(self):
+        return self.suscribers_email

@@ -1,6 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="secondary">
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark">
     <div class="container-fluid" style="font-family: 'Oswald', sans-serif;">
-      <a class="navbar-brand text-white" href="#">Navbar</a>
+      <a class="navbar-brand" href="/">
+        <img src="{% static 'images/logo-white.png' %}" width="160" height="50">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -8,14 +11,13 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {% for one in source_category_list %}
             <li class="nav-item">
-              <a class="nav-link active text-white" aria-current="page" href="/category/{{one}}">{{one}}</a>
+              <a class="nav-link" href="/category/{{one}}">{{one}}</a>
             </li>
           {% endfor %}
         </ul> 
         <form class="d-flex"  action="/search/" method="get">
           {% csrf_token %}
           {{ form }}
-          <input type="submit" value="Search" class="btn btn-outline-light mx-3">
         </form>
 
       </div>
