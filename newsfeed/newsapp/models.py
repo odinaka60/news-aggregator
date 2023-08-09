@@ -18,7 +18,7 @@ class News(models.Model):
     date = models.DateTimeField()
     image_link = models.URLField(max_length = 200)
     name = models.CharField(max_length=255, default='Online News')
-    favi_link = models.URLField(max_length = 200, default='https://fastly.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU')
+    favi_link = models.URLField(max_length = 200, default='https://ibb.co/n7bVQjR')
     category = models.CharField(max_length=255, default='News')
     clicks = models.IntegerField(default=0)
     

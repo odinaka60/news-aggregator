@@ -33,8 +33,7 @@ def home(request):
     form = SearchForm()
     context = {'page_obj': page_obj, 
                 'source_category_list': source_category_list,
-                'form': form, 
-                "head_title": "home"}
+                'form': form, }
     #context = {'news': news}
     return render(request, "home.html", context)
 
@@ -65,8 +64,10 @@ def contact(request):
                 recipient_list = [settings.EMAIL_HOST_USER, ]
                 send_mail( subject, message, email_from, recipient_list)
                 print('email sent')
+                return redirect('/contact/')
             except:
-                print('email sent')
+                print( 'email not sent')
+                return redirect('/contact/')
     context = {'contact_form': contact_form}
     return render(request, "contact.html", context)
 

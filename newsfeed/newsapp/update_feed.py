@@ -9,6 +9,7 @@ def update_feed_function():
     print("updating feed")
 
 ''''
+#function that updates the news feed
 def update_feed_function():
     feedurl_list = Source.objects.values_list('source_url', flat=True)
     all_news = []
@@ -21,12 +22,12 @@ def update_feed_function():
             result = getnews(i, favicon_link, name_title, name_category)
             all_news = all_news + result
         except:
+            print(i 'not responding')
             continue
-    #print(all_news)
     add_to_database(all_news)
     print("Done")
 
-
+#function that fetch news articles from the rss feed of different sources
 def getnews(url, favicon_link, name_title, name_category):
     scraper = cloudscraper.create_scraper(delay=10, browser='chrome')
     URL = url
@@ -40,27 +41,26 @@ def getnews(url, favicon_link, name_title, name_category):
     for feed in feeds:
         feed_details = {'title':feed.title.string, 'link': feed.link.string, 'date': dateutil.parser.parse(feed.pubDate.string), 'name': name_title, 'favi_link': favicon_link, 'category': name_category}
         feed_list.append(feed_details)
-    #return HttpResponse(godd)
     for i in feed_list:
         the_url = getimage(i['link'], scraper)
         i['image_link'] = the_url
 
     return feed_list
 
-
+# function that fetch the news article images from the url
 def getimage(news_url, scraper):
-    #scraper = cloudscraper.create_scraper(delay=10, browser='chrome')
     info = scraper.get(news_url).text
     soup = BeautifulSoup(info, "html.parser")
     try:
         image_prop = soup.head.find(property="og:image")
         image_link = image_prop.get('content')
-        print(image_link)
+        print("image retrieval successfull")
     except:
-        image_link = 'https://fastly.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU'
-        print(image_link)
+        image_link = 'https://ibb.co/n7bVQjR'
+        print("image retrieval not successfull, using default image")
     return image_link
-    
+
+#function that adds the news articles to database   
 def add_to_database(all_news):
     for i in all_news:
         the_title = i.get('title')
@@ -75,6 +75,6 @@ def add_to_database(all_news):
         else:
             d = News(title=the_title, link=the_link, date=the_date, image_link=the_image_link, name=the_name, favi_link=the_favi_link, category=the_category)
             d.save()
-            #print(i.get('title'))
+            
 
 '''
