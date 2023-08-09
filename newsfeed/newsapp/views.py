@@ -17,7 +17,7 @@ source_category_list = list(set(source_category_list))
 home_url_list = Source.objects.values_list('home_url', flat=True)
 svg_list = Source.objects.values_list('source_svg_link', flat=True)
 
-#feedurl_list = ["https://www.vanguardngr.com/feed", "https://guardian.ng/feed/", "https://www.premiumtimesng.com/feed", "https://rss.punchng.com/v1/category/latest_news"]
+
 def home(request):
     news = News.objects.order_by('-date')
     p = Paginator(news, 12)
@@ -119,7 +119,6 @@ def category(request, value):
         page_obj = p.page(p.num_pages)
     form = SearchForm()
     context = {'page_obj': page_obj, 'value': value}
-    #context = {'news': news}
     return render(request, "category.html", context)  
     
 
