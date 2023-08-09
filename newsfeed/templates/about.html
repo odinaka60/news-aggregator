@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block page_title %}
+
+    About Odithe News
+        
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid text-center" style="font-family: 'Oswald', sans-serif;" >
+    <div class="my-3">
+        <h1 class="mb-4" style="font-size: 4rem;">About us</h1>
+        <h2>Your Primary Source for Nigerian News</h2>
+        <h5 >
+            <p>Welcome to Odithe News, the leading news aggregator platform dedicated to bringing you </p>
+            <p>the latest and most comprehensive Nigerian news. We strive to be your one-stop destination</p>
+            <p>for staying informed about the diverse happenings in Nigeria and beyond. With a focus on </p>
+            <p>delivering accurate, timely, and reliable information, Odithe News is committed to keeping </p>
+            <p>you updated on all aspects of Nigerian life, politics, business, entertainment, sports, and </p>
+            <p>much more.</p>
+        </h5>
+        <hr class="m-5">
+    </div>
+
+    <div>
+        <h2> Our Mission</h2>
+        <h5 class="">
+            <p>At Odithe News, our mission is simple yet powerful: to empower Nigerians and global</p>
+            <p>readers alike with knowledge. We believe that access to unbiased and up-to-date news is</p>
+            <p>essential in fostering informed decision-making and driving positive change. Through our</p>
+            <p>carefully curated news content, we aim to provide a balanced perspective on the issues </p>
+            <p>shaping Nigeria's socio-economic and political landscape.</p>
+        </h5>
+        <hr class="m-5">
+    </div>
+
+    <div>
+        <h2> Stay Connected</h2>
+        <h5>
+            <p>Join our growing community of informed readers by subscribing to our newsletter and</p>
+            <p>following us on social media. Stay connected with the latest headlines, breaking news, and</p>
+            <p>captivating stories shaping Nigeria's narrative.</p>
+        </h5>
+        </div>
+    <div class="d-flex justify-content-center mb-5">
+        <form class="d-flex"  action="/about/" method="post">
+            {% csrf_token %}
+            {{ subscribe_form }}
+            <input type="submit" value="Suscribe" class="btn btn-dark mx-2">
+        </form> 
+    </div>
+
+</div>
+{% endblock %}
+
