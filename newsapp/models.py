@@ -1,16 +1,17 @@
 from django.db import models
 
 # Create your models here.
+
 class Source(models.Model):
     source_title = models.CharField(max_length=30)
     source_url = models.URLField(max_length = 200)
-    home_url = models.URLField(max_length = 200, default='https://fastly.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU')
+    home_url = models.URLField(max_length = 200, default='https://ibb.co/n7bVQjR')
     source_category = models.CharField(max_length = 200, default='News')
-    source_svg_link = models.URLField(max_length = 200, default='https://fastly.picsum.photos/id/119/3264/2176.jpg?hmac=PYRYBOGQhlUm6wS94EkpN8dTIC7-2GniC3pqOt6CpNU')
+    source_svg_link = models.URLField(max_length = 200, default='https://ibb.co/n7bVQjR')
     
     def __str__(self):
         return self.source_title
-    
+  
 
 class News(models.Model):
     title = models.CharField(max_length=255)

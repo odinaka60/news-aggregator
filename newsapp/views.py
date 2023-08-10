@@ -12,13 +12,13 @@ from django.core.mail import send_mail
 
 
 # Create your views here.
-source_category_list = Source.objects.values_list('source_category', flat=True)
-source_category_list = list(set(source_category_list))
-home_url_list = Source.objects.values_list('home_url', flat=True)
-svg_list = Source.objects.values_list('source_svg_link', flat=True)
+# home_url_list = Source.objects.values_list('home_url', flat=True)
+# svg_list = Source.objects.values_list('source_svg_link', flat=True)
 
 
 def home(request):
+    source_category_list = Source.objects.values_list('source_category', flat=True)
+    source_category_list = list(set(source_category_list))
     news = News.objects.order_by('-date')
     p = Paginator(news, 12)
     page_number = request.GET.get('page')

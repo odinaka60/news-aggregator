@@ -11,7 +11,7 @@
             
         <h6 class="text-secondary mt-2" >{{each.date|timesince|upto:',' }} ago</h6>
         
-            <h3> <a style="color: inherit; text-decoration: none;" href={{each.link}}>{{each.title}}</a></h3>
+            <h3> <a style="color: inherit; text-decoration: none;" href="/clicked/{{each.id}}/{{each.link}}">{{each.title}}</a></h3>
         
         <div class="d-flex flex-row justify-content-between px-2 pt-2 pb-2">
             <a class="btn" data-bs-toggle="modal" data-bs-target="#t{{each.id}}">
