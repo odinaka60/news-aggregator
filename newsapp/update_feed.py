@@ -22,7 +22,7 @@ def update_feed_function():
             result = getnews(i, favicon_link, name_title, name_category)
             all_news = all_news + result
         except:
-            print(i 'not responding')
+            print(f"{i} not responding")
             continue
     add_to_database(all_news)
     print("Done")
