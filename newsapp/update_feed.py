@@ -4,11 +4,11 @@ import cloudscraper
 from .models import Source, News
 import dateutil.parser
 
-
+''''
 def update_feed_function():
     print("updating feed")
+'''
 
-''''
 #function that updates the news feed
 def update_feed_function():
     feedurl_list = Source.objects.values_list('source_url', flat=True)
@@ -77,4 +77,4 @@ def add_to_database(all_news):
             d.save()
             
 
-'''
+
