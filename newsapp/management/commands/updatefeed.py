@@ -1,31 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
 import cloudscraper
-from .models import Source, News
+from newsapp.models import Source, News
 import dateutil.parser
+from django.core.management.base import BaseCommand
+
 
 ''''
 def update_feed_function():
     print("updating feed")
 '''
-
-#function that updates the news feed
-def update_feed_function():
-    feedurl_list = Source.objects.values_list('source_url', flat=True)
-    all_news = []
-    for i in feedurl_list:
-        try:
-            qeury_result = Source.objects.filter(source_url=i).first()
-            favicon_link = qeury_result.source_svg_link
-            name_title = qeury_result.source_title
-            name_category = qeury_result.source_category
-            result = getnews(i, favicon_link, name_title, name_category)
-            all_news = all_news + result
-        except:
-            print(f"{i} not responding")
-            continue
-    add_to_database(all_news)
-    print("Done")
 
 #function that fetch news articles from the rss feed of different sources
 def getnews(url, favicon_link, name_title, name_category):
@@ -60,7 +44,7 @@ def getimage(news_url, scraper):
         print("image retrieval not successfull, using default image")
     return image_link
 
-#function that adds the news articles to database   
+#function that adds the news articles to database
 def add_to_database(all_news):
     for i in all_news:
         the_title = i.get('title')
@@ -75,6 +59,25 @@ def add_to_database(all_news):
         else:
             d = News(title=the_title, link=the_link, date=the_date, image_link=the_image_link, name=the_name, favi_link=the_favi_link, category=the_category)
             d.save()
-            
 
 
+class Command(BaseCommand):
+
+    def handle(self, *args, **options):
+        #function that updates the news feed
+        feedurl_list = Source.objects.values_list('source_url', flat=True)
+        all_news = []
+        for i in feedurl_list:
+            try:
+                qeury_result = Source.objects.filter(source_url=i).first()
+                favicon_link = qeury_result.source_svg_link
+                name_title = qeury_result.source_title
+                name_category = qeury_result.source_category
+                result = getnews(i, favicon_link, name_title, name_category)
+                all_news = all_news + result
+            #except:
+            except Exception as error:
+                print(f"{i} not responding {error}")
+                continue
+        add_to_database(all_news)
+        print("Done")
