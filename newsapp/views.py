@@ -72,7 +72,7 @@ def contact(request):
     return render(request, "contact.html", context)
 
 def share(request, id):
-    news = News.objects.order_by('-date')[:6]
+    news = News.objects.order_by('-date')[:3]
     shared_news = News.objects.get(id=id)
     context = {'news': news, 'shared_news': shared_news}
     return render(request, "sharepage.html", context)
