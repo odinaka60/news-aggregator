@@ -77,11 +77,11 @@ def share(request, id):
     context = {'news': news, 'shared_news': shared_news}
     return render(request, "sharepage.html", context)
 
-def clicked(request, no, link):
+def clicked(request, no):
     clicked_news = News.objects.get(id=no)
     new_click_value= clicked_news.clicks+1
     News.objects.filter(id=no).update(clicks=new_click_value)
-    return redirect(link)
+    return redirect(clicked_news.link)
 
 def search(request):
     if request.method == "GET":

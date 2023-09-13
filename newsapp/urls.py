@@ -9,5 +9,5 @@ urlpatterns = [
     path('share/<str:id>/', views.share),
     path('search/', views.search),
     path('category/<str:value>/', views.category),
-    path('clicked/<str:no>/<path:link>/', views.clicked),
+    path('clicked/<str:no>/', views.clicked),
 ]
