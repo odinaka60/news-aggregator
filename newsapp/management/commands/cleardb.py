@@ -6,7 +6,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # deleting old news in the database
-        db_limit = 33
+        db_limit = 1000
         count = News.objects.filter().count()
         print(f'news database entries is {count} in number')
         if count > db_limit:
