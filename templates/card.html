@@ -7,11 +7,11 @@
     <div class="d-flex flex-column px-3">
 
             
-        <a href="/clicked/{{each.id}}"> <img src="{{each.image_link}}" class="object-fit-cover rounded-3" style="height:270px; width:100%;" alt="news image"> </a>
+        <a href="/clicked/{{each.id}}"> <img onmouseover="this.style='opacity: .5; height:270px; width:100%;';" onmouseout="this.style='opacity: inherit; height:270px; width:100%;';" src="{{each.image_link}}" class="object-fit-cover rounded-3" style="height:270px; width:100%;" alt="news image"> </a>
             
         <h6 class="text-secondary mt-2" >{{each.date|timesince|upto:',' }} ago</h6>
         
-            <h3> <a style="color: inherit; text-decoration: none;" href="/clicked/{{each.id}}">{{each.title}}</a></h3>
+            <h3 onmouseover="this.style='text-decoration: underline;';" onmouseout="this.style='text-decoration: inherit';"> <a style="color: inherit; text-decoration: none;" href="/clicked/{{each.id}}">{{each.title}}</a></h3>
         
         <div class="d-flex flex-row justify-content-between px-2 pt-2 pb-2">
             <a class="btn" data-bs-toggle="modal" data-bs-target="#t{{each.id}}">
@@ -20,9 +20,10 @@
                 </svg>
             </a>
             <a class="btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hand-index-thumb" viewBox="0 0 16 16">
-                    <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 0 0 1 0V6.435l.106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 1 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.118a.5.5 0 0 1-.447-.276l-1.232-2.465-2.512-4.185a.517.517 0 0 1 .809-.631l2.41 2.41A.5.5 0 0 0 6 9.5V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v6.543L3.443 6.736A1.517 1.517 0 0 0 1.07 8.588l2.491 4.153 1.215 2.43A1.5 1.5 0 0 0 6.118 16h6.302a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
-                </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+              </svg>
                 <h6 style="font-size: 0.85rem;">{{each.clicks}}</h6>
             </a>
             <a class="btn" data-bs-toggle="modal" data-bs-target="#v{{each.id}}">
