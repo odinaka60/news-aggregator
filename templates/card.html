@@ -1,13 +1,13 @@
 {% load my_custom_tags %}
 <div class="w-100 my-4 d-flex flex-column border border-2 border-secondary-subtle rounded" style="font-family: 'Oswald', sans-serif;">
     <div class="d-flex flex-row pt-3 px-3 mb-1">
-        <img src="{{each.favi_link }}" style="width:35px; height: 35px; aspect-ratio: auto 35 / 35; border-radius: 50%;">
+        <img src="{{each.favi_link }}" onerror="this.src='static/images/favicon.png'" style="width:35px; height: 35px; aspect-ratio: auto 35 / 35; border-radius: 50%;">
         <h6 class="ms-2">{{each.name}}</h6>
     </div>
     <div class="d-flex flex-column px-3">
 
             
-        <a href="/clicked/{{each.id}}"> <img onmouseover="this.style='opacity: .5; height:270px; width:100%;';" onmouseout="this.style='opacity: inherit; height:270px; width:100%;';" src="{{each.image_link}}" class="object-fit-cover rounded-3" style="height:270px; width:100%;" alt="news image"> </a>
+        <a href="/clicked/{{each.id}}"> <img onmouseover="this.style='opacity: .5; height:270px; width:100%;';" onmouseout="this.style='opacity: inherit; height:270px; width:100%;';" src="{{each.image_link}}" onerror="this.src='static/images/background-image.png'" class="object-fit-cover rounded-3" style="height:270px; width:100%;" alt="news image"> </a>
             
         <h6 class="text-secondary mt-2" >{{each.date|timesince|upto:',' }} ago</h6>
         
