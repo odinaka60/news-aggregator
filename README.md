@@ -4,7 +4,7 @@ A full-stack Django web application that aggregates the latest headlines from mu
 
 **Live site:** https://www.odithenews.com/
 
-> Built and deployed to production while I was based in Lagos, Nigeria. The project is live and self-updating via scheduled jobs.
+> Built and deployed to production while I was based in Nigeria. The project is live and self-updating via scheduled jobs.
 
 ---
 
