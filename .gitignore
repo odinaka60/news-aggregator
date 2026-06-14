@@ -11,3 +11,12 @@ venv.bak/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+*.log
+
+# IDE
+.vscode/
+.idea/
